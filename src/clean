@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm -rf __pycache__
+rm -rf sim_build
+rm -rf .pytest_cache
+rm -f *.gtkw
+rm -f *.vcd
+rm -f *.xml

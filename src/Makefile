@@ -4,12 +4,13 @@
 # defaults
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
+COCOTB_HDL_TIMEUNIT ?= 1ns
 
 # normal simulation
 ifneq ($(GATES),yes)
 
 # this is the only part you should need to modify:
-VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/tt_um_seven_segment_seconds.v $(PWD)/decoder.v
+VERILOG_SOURCES += $(PWD)/spi.v $(PWD)/pwm_gen.v $(PWD)/pwm_sync.v $(PWD)/k_nn.v $(PWD)/counter.v $(PWD)/tt_um_wta_pwm.v $(PWD)/tb.v
 
 else
 
