@@ -133,4 +133,6 @@ assign uo_out[5] = pwm_inside[7];
 assign uo_out[6] = pwm_sync[7];
 assign uo_out[7] = pwm_fall[7];
 
+assign uio_out = 8'b0; // Tie output to GND
+
 endmodule
