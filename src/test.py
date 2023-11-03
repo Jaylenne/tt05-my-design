@@ -1,5 +1,4 @@
 import cocotb
-import numpy as np
 import random
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
