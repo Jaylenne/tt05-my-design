@@ -11,9 +11,9 @@ module pwm_gen(
 reg [11:0] counter_reg, counter_next;
 reg [1:0] state_reg, state_next;
 
-localparam  S_IDLE  = 2'd0,
-            S_PWM   = 2'd1,
-            S_END   = 2'd2;
+localparam  S_IDLE  = 2'b00,
+            S_PWM   = 2'b01,
+            S_END   = 2'b10;
 
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
@@ -26,19 +26,22 @@ always @(posedge clk or negedge rst_n) begin
 end
 
 always @(*) begin
-    counter_next = counter_reg;
-    state_next = state_reg;
+    // counter_next = counter_reg;
+    // state_next = state_reg;
 
     case(state_reg) 
         S_IDLE: begin
             o_pwm = 0;
+            counter_next = 12'd0;
             if(i_pwm_tri) state_next = S_PWM;
+            else state_next = state_reg;
         end
 
         S_PWM: begin
             if(counter_reg < i_pulse_width) begin
                 o_pwm = 1;
                 counter_next = counter_reg + 1'b1;
+                state_next = state_reg;
             end else begin
                 o_pwm = 0;
                 counter_next = 12'd0;
@@ -49,10 +52,13 @@ always @(*) begin
         S_END: begin
             o_pwm = 0;
             state_next = S_IDLE;
+            counter_next = 12'd0;
         end
 
         default: begin
             o_pwm = 0;
+            state_next = state_reg;
+            counter_next = counter_reg;
         end
     endcase
 end

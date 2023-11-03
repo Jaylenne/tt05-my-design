@@ -46,18 +46,18 @@ spi u_spi(
 
 // PWM generation
 
-wire [11:0] pulse_width [7:0];
+// wire [11:0] pulse_width [7:0];
 wire [7:0]  o_pwm;
 wire        i_pwm_tri;
 
 assign i_pwm_tri = ui_in[4];
 
 genvar i;
-generate
-    for(i=0; i<8; i=i+1) begin: gen_assign_pw  
-        assign pulse_width[i] = o_spi1_out[((i+1)*12-1)-:12];
-    end
-endgenerate
+// generate
+//     for(i=0; i<8; i=i+1) begin: gen_assign_pw  
+//         assign pulse_width[i] = o_spi1_out[((i+1)*12-1)-:12];
+//     end
+// endgenerate
 
 generate
     for(i=0; i<8; i=i+1) begin: gen_pwm
@@ -65,7 +65,7 @@ generate
             .clk           	( clk            ),
             .rst_n         	( rst_n          ),
             .i_pwm_tri     	( i_pwm_tri      ),
-            .i_pulse_width 	( pulse_width[i] ),
+            .i_pulse_width 	( o_spi1_out[((i+1)*12-1)-:12] ),
             .o_pwm         	( o_pwm[i]       )
         );
     end
