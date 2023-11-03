@@ -40,12 +40,12 @@ end
 reg [95:0] spi1_in;
 reg [15:0] spi2_in;
 
-always @(posedge clk or negedge rst_n) begin        
+always @(posedge clk) begin        
     if(i_ss_1) spi1_in <= spi1_in >> 1;
     else spi1_in <= i_spi1_in;
 end
 
-always @(posedge clk or negedge rst_n) begin        
+always @(posedge clk) begin        
     if(i_ss_2) spi2_in <= spi2_in >> 1;
     else spi2_in <= i_spi2_in;
 end
