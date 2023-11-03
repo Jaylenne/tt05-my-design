@@ -10,7 +10,7 @@ COCOTB_HDL_TIMEUNIT ?= 1ns
 ifneq ($(GATES),yes)
 
 # this is the only part you should need to modify:
-VERILOG_SOURCES += $(PWD)/spi.v $(PWD)/pwm_gen.v $(PWD)/pwm_sync.v $(PWD)/k_nn.v $(PWD)/counter.v $(PWD)/tt_um_wta_pwm.v $(PWD)/tb.v
+VERILOG_SOURCES += $(PWD)/spi.v $(PWD)/pwm_gen.v $(PWD)/pwm_sync.v $(PWD)/k_nn.v $(PWD)/counter.v $(PWD)/tt_um_jaylennee_wta_pwm.v $(PWD)/tb.v
 
 else
 
