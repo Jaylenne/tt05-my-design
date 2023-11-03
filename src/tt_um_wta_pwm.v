@@ -133,4 +133,6 @@ assign uo_out[5] = pwm_inside[7];
 assign uo_out[6] = pwm_sync[7];
 assign uo_out[7] = pwm_fall[7];
 
+assign ui_in[7:5] = 3'b000;
+
 endmodule

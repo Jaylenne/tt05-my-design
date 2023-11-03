@@ -38,7 +38,7 @@ documentation:
     - Detail of the internal modules
       `SPI 1`: It's for the pulse-width configuration of 8 PWM signals. Users should latch 96-bit signals through the SPI 1 to configure all PWM signals. This channel can also shift out the results of 8-channel time-to-digital converter (TDC) which is used to convert the PWM duration into digital signals.
       `SPI 2`: It's for the configuration of internal switch of 8-channel. Each switch will select either internal PWM or external signal is used. Another 3-bit signal is used to set the number K which is K-smallest duration of input PWM signal. The MISO will shift out the 8-bit smallest PWM address and 8-bit K-smallest PWM address. 
-      `PWM_sync': It synchronize the PWM signals comming in and convert it to digital signal with TDC and detect the falling edge.
+      `PWM_sync`: It synchronize the PWM signals comming in and convert it to digital signal with TDC and detect the falling edge.
       `k_nn`: It senses the 8 falling edges and store them once it's been triggered. An internal counter will count the number of falling edges at each clock cycle and latch the address of existing falling edges.
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
